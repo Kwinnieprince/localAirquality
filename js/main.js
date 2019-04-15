@@ -50,8 +50,8 @@ function luftdaten() {
       fineP2div = '<div id="p2div" class="alert alert-danger">Er is ' + fineP2 + ' mg/m<sup>3</sup> aan partikels van 10 &#181;m</div>'
     }
 
-    $('#main').html(fineP1div);
-    $('#main').html(fineP2div);
+    $('#main').append(fineP1div);
+    $('#main').append(fineP2div);
     
   })
 }
