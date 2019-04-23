@@ -17,9 +17,10 @@ function luftdaten() {
     let iframeHtml =
       "<div class='container-fluid full-height no-padding'>" +
         "<div class='row full-height no-padding'>" +
-          "<div class='col-sm full-height no-padding'>" +
+          "<div class='col-sm-9 full-height no-padding'>" +
             "<iframe src='https://maps.luftdaten.info/#15/50.8915/4.6932' class='full-height full-width' id='iframe'></iframe>" +
           "</div>" +
+          "<div class='com-sm-3' id='calculatedvalues'></div>" +
         "</div>" +
       "</div>";
     $.getJSON('https://api.luftdaten.info/v1/sensor/24242/').done(function (data){
@@ -59,10 +60,9 @@ function luftdaten() {
     }
 
     $('#main').empty();
-    $('#main').append(fineP1div);
-    $('#main').append(fineP2div);
     $('#main').html(iframeHtml);
-    
+    $('#calculatedvalues').append(fineP1div);
+    $('#calculatedvalues').append(fineP2div);
   })
 }
 
