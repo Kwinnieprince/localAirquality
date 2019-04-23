@@ -1,6 +1,6 @@
 function home() {
   let html;
-
+  $('#main').empty();
 }
 
 function luftdaten() {
