@@ -83,7 +83,6 @@ function telraam() {
 }
 
 function removeFooter(){
-  document.domain = "https://kwinnieprince.github.io";
   $(document).ready(function(){
     $('#iframe').contents().find('footer.site-footer.no-top-margin').remove();
     $('#iframe').contents().find('section.navigation').remove();
