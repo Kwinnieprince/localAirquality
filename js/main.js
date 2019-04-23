@@ -14,7 +14,15 @@ function luftdaten() {
     let temperaturediv;
     let fineP1div;
     let fineP2div;
-    $.getJSON('https://api.luftdaten.info/v1/sensor/24242/',function (data){
+    let iframeHtml =
+      "<div class='container-fluid full-height no-padding'>" +
+        "<div class='row full-height no-padding'>" +
+          "<div class='col-sm full-height no-padding'>" +
+            "<iframe src='https://maps.luftdaten.info/#15/50.8915/4.6932' class='full-height full-width' id='iframe'></iframe>" +
+          "</div>" +
+        "</div>" +
+      "</div>";
+    $.getJSON('https://api.luftdaten.info/v1/sensor/24242/').done(function (data){
       $.each(data, function (i, field) {
         humidity = field.sensordatavalues[0].value;
         temperature = field.sensordatavalues[1].value;
@@ -50,13 +58,35 @@ function luftdaten() {
       fineP2div = '<div id="p2div" class="alert alert-danger">Er is ' + fineP2 + ' mg/m<sup>3</sup> aan partikels van 10 &#181;m</div>'
     }
 
+    $('#main').empty();
     $('#main').append(fineP1div);
     $('#main').append(fineP2div);
+    $('#main').html(iframeHtml);
     
   })
 }
 
 function telraam() {
-  let html;
+  let html =
+    "<div class='container-fluid full-height no-padding'>" +
+      "<div class='row full-height no-padding'>" +
+        "<div class='col-sm full-height no-padding'>" +
+          "<iframe src='https://telraam.net' class='full-height full-width' id='iframe'></iframe>" +
+        "</div>" +
+      "</div>" +
+    "</div>";
+  $('#main').empty();
+  $('#main').html(html);
+}
+
+function removeFooter(){
+  $(document).ready(function(){
+    $iframeContent = $('#iframe').contents();
+    $iframeContent.find('footer.site-footer.no-top-margin').empty();
+    $iframeContent.find('section.navigation').empty();
+
+    // $("footer.site-footer.no-top-margin ").empty();
+    // $("section.navigation").empty();
+  });
 
 }
