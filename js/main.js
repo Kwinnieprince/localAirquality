@@ -71,19 +71,22 @@ function telraam() {
     "<div class='container-fluid full-height no-padding'>" +
       "<div class='row full-height no-padding'>" +
         "<div class='col-sm full-height no-padding'>" +
-          "<iframe src='https://telraam.net' class='full-height full-width' id='iframe'></iframe>" +
+          "<div id='iframeOuter'>" +
+            "<iframe src='https://telraam.net' class='full-height full-width' id='iframe'></iframe>" +
+          "</div>" +
         "</div>" +
       "</div>" +
     "</div>";
   $('#main').empty();
   $('#main').html(html);
+  removeFooter();
 }
 
 function removeFooter(){
+  document.domain = "https://kwinnieprince.github.io";
   $(document).ready(function(){
-    $iframeContent = $('#iframe').contents();
-    $iframeContent.find('footer.site-footer.no-top-margin').empty();
-    $iframeContent.find('section.navigation').empty();
+    $('#iframe').contents().find('footer.site-footer.no-top-margin').remove();
+    $('#iframe').contents().find('section.navigation').remove();
 
     // $("footer.site-footer.no-top-margin ").empty();
     // $("section.navigation").empty();
