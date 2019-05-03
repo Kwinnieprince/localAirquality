@@ -5,6 +5,8 @@ function home() {
 
 function luftdaten() {
   $(document).ready(function () {
+    // let values = getFineParicles();
+    // let humidityValues = getTemperatureAndHumidity();
     let html;
     let humidity;
     let temperature;
@@ -16,33 +18,34 @@ function luftdaten() {
     let fineP2div;
     let iframeHtml =
       "<div class='container-fluid full-height no-padding'>" +
-        "<div class='row full-height no-padding'>" +
-          "<div class='com-sm-3' id='calculatedvalues'></div>" +
-          "<div class='col-sm-9 full-height no-padding'>" +
-            "<iframe src='https://maps.luftdaten.info/#15/50.8915/4.6932' class='full-height full-width' id='iframe'></iframe>" +
-          "</div>" +
-        "</div>" +
+      "<div class='row full-height no-padding'>" +
+      "<div class='com-sm-3' id='calculatedvalues'></div>" +
+      "<div class='col-sm-9 full-height no-padding'>" +
+      "<iframe src='https://maps.luftdaten.info/#15/50.8915/4.6932' class='full-height full-width' id='iframe'></iframe>" +
+      "</div>" +
+      "</div>" +
       "</div>";
     $.getJSON('https://api.luftdaten.info/v1/sensor/24242/').done(function (data){
       $.each(data, function (i, field) {
         humidity = field.sensordatavalues[0].value;
         temperature = field.sensordatavalues[1].value;
-        console.log(field.sensordatavalues[0].value); //Hunidity
-        console.log(field.sensordatavalues[1].value); //Tenperature
+        console.log(field.sensordatavalues[0].value); //Humidity
+        console.log(field.sensordatavalues[1].value); //Temperature
       })
     });
-
     $.getJSON('https://api.luftdaten.info/v1/sensor/24241/').done(function (data){
       $.each(data, function (i, field) {
         if (field.sensordatavalues[0]){
           fineP1 = field.sensordatavalues[0].value;
           fineP2 = field.sensordatavalues[1].value;
-          console.log(field.sensordatavalues[0]); //P1
-          console.log(field.sensordatavalues[1]); //P2
+          console.log(fineP1 + "P1"); //P1
+          console.log(fineP2 + "P2"); //P2
         }
       })
     });
-    
+    setTimeout( function(){
+    console.log("P1 " + fineP1 + "  P2 " + fineP2);
+
     if (fineP1 < 25.00){
       fineP1div = '<div id="p1div" class="alert alert-succes">Er is ' + fineP1 + ' mg/m<sup>3</sup> aan partikels van 2.5 &#181;m</div>'
     }else if (fineP1 >= 25.00 && fineP1 < 50.00 ){
@@ -63,8 +66,33 @@ function luftdaten() {
     $('#main').html(iframeHtml);
     $('#calculatedvalues').append(fineP1div);
     $('#calculatedvalues').append(fineP2div);
+  }, 1000);
   })
 }
+
+// function getFineParicles() {
+//   $.getJSON('https://api.luftdaten.info/v1/sensor/24241/').done(function (data){
+//     $.each(data, function (i, field) {
+//       if (field.sensordatavalues[0]){
+//         let values = [2];
+//         return field.sensordatavalues[0].value; // P1
+//         // values[1] = field.sensordatavalues[1].value; //P2
+//         // return values;
+//       }
+//     })
+//   });
+// }
+
+// function getTemperatureAndHumidity() {
+//   $.getJSON('https://api.luftdaten.info/v1/sensor/24242/').done(function (data){
+//     $.each(data, function (i, field) {
+//       let valuesTemp = [2];
+//       values[0] = field.sensordatavalues[0].value; // humidity
+//       values[1] = field.sensordatavalues[1].value; // temperature
+//       return valuesTemp;
+//     })
+//   });
+// }
 
 function telraam() {
   let html =
@@ -79,7 +107,7 @@ function telraam() {
     "</div>";
   $('#main').empty();
   $('#main').html(html);
-  removeFooter();
+  // removeFooter();
 }
 
 function removeFooter(){
