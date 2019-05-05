@@ -8,9 +8,9 @@ function home() {
   let welcome_html =
   "<h1>Welkom op het project van de Mechelsesteenweg</h1>" +
     "<br>" +
-    "<h2>Dit project is nog in volle ontwikkeling.</h2>" +
+    "<p>Hier kan je de luchtkwaliteit in de straat bekijken en informatie van het aantal auto's in de straat</p>" +
     "<br>" +
-    "<p>Kalender</p>";
+    "<p>Dit project is echter nog in volle ontwikkeling</p>";
   $('#main').empty();
   $('#main').append(welcome_html);
 }
