@@ -76,7 +76,7 @@ function luftdaten() {
       fineP2div = '<div id="p2div" class="alert alert-danger">Er zijn ' + fineP2 + ' mg/m<sup>3</sup> aan partikels van 10 &#181;m</div>'
     }
 
-    if (humidity < 35) {
+    if (humidity < 30) {
       humiditydiv = '<div id="humiditydiv" class="alert alert-danger">De luchtvochtigheid is ' + humidity + ' %</div>'
     } else if (humidity >= 35 && humidity < 70) {
       humiditydiv = '<div id="humiditydiv" class="alert alert-success">De luchtvochtigheid is ' + humidity + ' %</div>'
