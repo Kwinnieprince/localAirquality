@@ -5,6 +5,7 @@ function home() {
 
 function luftdaten() {
   $(document).ready(function () {
+    toggleDropdown();
     // let values = getFineParicles();
     // let humidityValues = getTemperatureAndHumidity();
     let html;
@@ -95,6 +96,7 @@ function luftdaten() {
 // }
 
 function telraam() {
+  toggleDropdown();
   let html =
     "<div class='container-fluid full-height no-padding'>" +
       "<div class='row full-height no-padding'>" +
@@ -118,5 +120,24 @@ function removeFooter(){
     // $("footer.site-footer.no-top-margin ").empty();
     // $("section.navigation").empty();
   });
+}
+
+function information() {
+  toggleDropdown();
+  let information_html =
+    "<div class='container-fluid full-height no-padding'>" +
+    "<div class='row full-height no-padding'>" +
+    "<div class='col-sm full-height no-padding'>" +
+    "<div id='iframeOuter'>" +
+    "<iframe src='https://telraam.net/nl/location/348180/2019-04-21/2019-05-05' class='full-height full-width' id='iframe'></iframe>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>";
+  $('#main').empty();
+  $('#main').html(information_html);
+}
+
+function toggleDropdown() {
 
 }
