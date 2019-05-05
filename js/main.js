@@ -111,7 +111,7 @@ function telraam() {
     "</div>" +
     "</div>" +
     "</div>";
-  $('#main').empty()
+  $('#main').empty();
   $('#main').html(html);
 }
 
