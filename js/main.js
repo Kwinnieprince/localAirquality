@@ -100,43 +100,32 @@ function luftdaten() {
   });
 }
 
-  function telraam() {
-    let html =
-      "<div class='container-fluid full-height no-padding'>" +
-      "<div class='row full-height no-padding'>" +
-      "<div class='col-sm full-height no-padding'>" +
-      "<div id='iframeOuter'>" +
-      "<iframe src='https://telraam.net' class='full-height full-width' id='iframe'></iframe>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
-    $('#main').empty();
-    $('#main').html(html);
-    // removeFooter();
-  }
+function telraam() {
+  let html =
+    "<div class='container-fluid full-height no-padding'>" +
+    "<div class='row full-height no-padding'>" +
+    "<div class='col-sm full-height no-padding'>" +
+    "<div id='iframeOuter'>" +
+    "<iframe src='https://telraam.net' class='full-height full-width' id='iframe'></iframe>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>";
+  $('#main').empty()
+  $('#main').html(html);
+}
 
-  function removeFooter() {
-    $(document).ready(function () {
-      $('#iframe').contents().find('footer.site-footer.no-top-margin').remove();
-      $('#iframe').contents().find('section.navigation').remove();
-
-      // $("footer.site-footer.no-top-margin ").empty();
-      // $("section.navigation").empty();
-    });
-  }
-
-  function information() {
-    let information_html =
-      "<div class='container-fluid full-height no-padding'>" +
-      "<div class='row full-height no-padding'>" +
-      "<div class='col-sm full-height no-padding'>" +
-      "<div id='iframeOuter'>" +
-      "<iframe src='https://telraam.net/nl/location/348180/2019-04-21/2019-05-05' class='full-height full-width' id='iframe'></iframe>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
-    $('#main').empty();
-    $('#main').html(information_html);
-  }
+function information() {
+  let information_html =
+    "<div class='container-fluid full-height no-padding'>" +
+    "<div class='row full-height no-padding'>" +
+   "<div class='col-sm full-height no-padding'>" +
+    "<div id='iframeOuter'>" +
+    "<iframe src='https://telraam.net/nl/location/348180/2019-04-21/2019-05-05' class='full-height full-width' id='iframe'></iframe>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div>";
+  $('#main').empty();
+  $('#main').html(information_html);
+}
