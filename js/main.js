@@ -1,11 +1,22 @@
+window.onload = () => {
+  $(document).ready(() => {
+    home();
+  });
+};
+
 function home() {
-  let html;
+  let welcome_html =
+  "<h1>Welkom op het project van de Mechelsesteenweg</h1>" +
+    "<br>" +
+    "<h2>Dit project is nog in volle ontwikkeling.</h2>" +
+    "<br>" +
+    "<p>Kalender</p>";
   $('#main').empty();
+  $('#main').append(welcome_html);
 }
 
 function luftdaten() {
   $(document).ready(function () {
-    toggleDropdown();
     // let values = getFineParicles();
     // let humidityValues = getTemperatureAndHumidity();
     let html;
@@ -96,7 +107,6 @@ function luftdaten() {
 // }
 
 function telraam() {
-  toggleDropdown();
   let html =
     "<div class='container-fluid full-height no-padding'>" +
       "<div class='row full-height no-padding'>" +
@@ -123,7 +133,6 @@ function removeFooter(){
 }
 
 function information() {
-  toggleDropdown();
   let information_html =
     "<div class='container-fluid full-height no-padding'>" +
     "<div class='row full-height no-padding'>" +
@@ -136,8 +145,4 @@ function information() {
     "</div>";
   $('#main').empty();
   $('#main').html(information_html);
-}
-
-function toggleDropdown() {
-
 }
