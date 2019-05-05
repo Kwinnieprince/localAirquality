@@ -98,6 +98,7 @@ function luftdaten() {
     $('#calculatedvalues').append(humiditydiv);
     $('#calculatedvalues').append(temperaturediv);
   });
+}
 
   function telraam() {
     let html =
@@ -139,4 +140,3 @@ function luftdaten() {
     $('#main').empty();
     $('#main').html(information_html);
   }
-}
