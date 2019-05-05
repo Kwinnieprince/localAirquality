@@ -8,7 +8,7 @@ function home() {
   let welcome_html =
   "<h1>Welkom op het project van de Mechelsesteenweg</h1>" +
     "<br>" +
-    "<p>Hier kan je de luchtkwaliteit in de straat bekijken en informatie van het aantal auto's in de straat</p>" +
+    "<p>Hier kan je de luchtkwaliteit in de straat bekijken en informatie van het voertuigen, fietsers en voetgangers in de straat</p>" +
     "<br>" +
     "<p>Dit project is echter nog in volle ontwikkeling</p>";
   $('#main').empty();
